@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const CounterWidget());
+        home: CounterWidget());
   }
 }
 
 class CounterWidget extends StatelessWidget {
-  const CounterWidget({super.key});
+  CounterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +32,17 @@ class CounterWidget extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Consumer<CounterModel>(
-          builder: (BuildContext context, CounterModel value, Widget? child) {
+          builder: (BuildContext context, CounterModel counter, Widget? child) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Counter value:${value.counter}",
-                  style: TextStyle(fontSize: 29),
+                  "Counter value:${counter.counter}",
+                  style: const TextStyle(fontSize: 29),
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      value.increment();
+                      counter.increment();
                     },
                     child: const Text("Increment"))
               ],
